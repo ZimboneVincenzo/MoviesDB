@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  //width: 100vw;
+  font-family: "Mulish", sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @media (min-width: 360px) {
+    max-width: 320px;
+  }
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 1140px;
+  }
+}
+
+.cardflex{
+  flex-wrap: wrap;
+
+}
+
+.marginTop{
+  margin-top: 6.25rem;
+}

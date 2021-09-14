@@ -1,0 +1,83 @@
+ul{
+    padding-left: 0;
+}
+.cardFlex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    &__link{
+        color: black;
+        text-decoration: none;
+    }
+}
+.cardList{
+   
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+    background-color: transparent;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    width: 200px !important;
+    text-decoration: none;
+    list-style: none;
+
+
+    &:hover{
+    
+        transform: translateY(-10px);
+    }
+
+    &__genre{
+        margin-right: 1.5rem!important;
+        margin-bottom: .25rem!important;
+        font-size: 80%;
+        text-decoration: none;
+        list-style: none;
+    }
+}
+
+.card{
+
+    &__vote{
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    background-color: #212529;
+    padding: 5px;
+    color: #ffc107;
+    text-align: center;
+    display: block;
+    z-index: 100;
+    min-width: 35px;
+    font-size: .8em;
+    border-radius: 50%;
+    border: 2px solid #343a40;
+
+    }
+
+    &__hover{
+        position: relative;
+        margin-bottom: 0!important;
+        background-color: #000;
+        min-height: 125px;
+        color: #dee2e6;
+
+        &:hover{
+        
+            color: #dee2e6;
+        }
+    }
+}
+
+.modal-body{
+    padding: 0!important;
+};
+
+.modal-dialog{
+    margin-top: 4.3rem;
+}

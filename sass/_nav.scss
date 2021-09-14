@@ -1,0 +1,131 @@
+.fixed{
+   
+        overflow: hidden;
+        background-color: #fffcf5;
+        position: fixed; 
+        top: 0; 
+        width: 100%;
+        z-index: 1050;
+   
+}
+.movieText{
+    @media (max-width: 990px) {
+        display: none;
+        margin: 0;
+      }
+}
+
+.navicon{
+    &__video{
+        font-size: 5rem;
+        fill: #ffc107;
+        margin: auto 10px auto 0
+    }
+    &__list{
+        font-size: 2.5rem;
+    }
+}
+      
+//Classe contenitore due parti nav
+.container{
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        &__first{
+            display: flex;
+            align-items: center;
+        }
+
+        &__second{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+
+.nav__title{
+    color: #ffc107;
+    margin: auto 20px auto 0;
+    font-weight: 300;
+    font-size: 1.5em;
+     &:hover{
+        color: #ffc107;
+     }
+}
+.nav{
+    
+    &__align{
+        align-items: center;
+    }
+}
+
+.collapse{
+    &__right{
+   
+        position: fixed;
+        //display: block!important;
+        top: 0;
+        height: 100%!important;
+        width: 230px;
+        right: 0;
+        z-index: 1032;
+        visibility: visible;
+        background-color: #999;
+        overflow-y: visible;
+        border-top: none;
+        text-align: left;
+        border-left: 1px solid #ccc5b9;
+        padding-right: 0;
+        padding-left: 40px;
+        padding-top: 15px;
+        background-color: #fffcf5;
+
+
+          
+   @keyframes example {
+    from {width: 0rem;
+        background-color: #fffcf5;}
+    to {width: 10rem;
+        background-color: #fffcf5; }
+  }
+
+
+        @media (min-width: 992px) {
+            display: none!important;;
+
+          }
+    }
+}
+
+.nav__desktop{
+    @media (min-width: 992px) {
+        display: none!important;;
+      }
+}
+
+.btn{
+    &__signIn{
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+        line-height: 1.5;
+        border-radius: .25rem;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+    }
+    &:hover{
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    &:active{
+    color: #fff;
+    background-color: #bd2130;
+    border-color: #b21f2d;
+    }
+}
+

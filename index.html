@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <!--<link rel="icon" type="image/svg+xml" href="favicon.svg" />-->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--Bootstrap.js-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="module" defer src="script/controller.js"></script>
+    <title>Movies</title>
+  </head>
+  <body>
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog container">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="detail">
+              <!--<div class="card mb-3" style="max-width: 540px;">
+                      <div class="row g-0">
+                        <div class="col-md-4">
+                          <img src="..." class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-group">
+                <div class="card">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+                  -->
+              <div class="detail">
+                <!--<div class="card-group">
+                    <div class="card " style="width: 18rem;">
+                      <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                    
+                    <div class="card" style="width: 18rem;">
+                      <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                      <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                      <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                
+                    </div>
+                  </div>-->
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-close"></button>
+          </div>
+          <!--<div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
+      <div class="container">
+        <div class="container__nav">
+       
+          <div class="container__nav__first">
+               <img
+            src="./img/icons8-video-call-30.png"
+            class="navicon__video"
+            alt="Vieo icon"
+          />
+
+            <div class="me-auto mb-2 mb-lg-0 nav-item movieText">
+              <h3 class="nav-link nav__title" aria-current="page"
+                >MovieBrowser</h3
+              >
+            </div>
+
+            <div class="nav-item">
+              <form class="form-search d-flex">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search by movie name"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        
+          <div class="container__nav__second">
+
+            <!--Nav non esterno-->
+           
+            <div class="collapse navbar-collapse" >
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav__align">
+                <li class="nav-item">
+                <img
+                src="./img/icons8-list-50.png"
+                class="navicon__list"
+                alt="Vieo icon"
+              />
+                </li>
+              <li class="nav-item">    <img
+                src="./img/icons8-github-24.png"
+                class="navicon__git"
+                alt="Vieo icon"
+              /></li>
+            
+                <li class="nav-item">
+                  <form class="form-search d-flex nav-item">
+                    <button
+                      class="btn btn-outline-success btn__signIn"
+                      type="submit"
+                    >
+                      SIGN IN
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          
+          <div class="nav__desktop">
+            <div class="collapse navbar-collapse collapse__right " id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <img
+                src="./img/icons8-list-50.png"
+                class="navicon__list"
+                alt="Vieo icon"
+              />
+                </li>
+              <li class="nav-item">    <img
+                src="./img/icons8-github-24.png"
+                class="navicon__git"
+                alt="Vieo icon"
+              /></li>
+            
+                <li class="nav-item">
+                  <form class="form-search d-flex nav-item">
+                    <button
+                      class="btn btn-outline-success btn-danger"
+                      type="submit"
+                    >
+                      SIGN IN
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      
+    </nav>
+
+    <main class="container marginTop">
+  
+      <!--Link-->
+      <div class="input-group btn__menu">
+        <!--<button class="btn btn-outline-secondary" type="button" id="button-addon1">Popular</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Now playing</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Top rated</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Upcoming</button>-->
+      </div>
+
+      <!--CARD-->
+
+      <div class="card-group nav--change">
+        <!--<div class="card " style="width: 18rem;">
+          <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+    
+        </div>
+      </div>-->
+      </div>
+      <footer>
+        <nav>
+          <ul class="pagination">
+            <!--<li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&larr;</span>
+            </a>
+          </li>
+          <li class="page-item page-goto"><a class="page-link" href="#">1</a></li>
+          <li class="page-item page-goto"><a class="page-link" href="#">2</a></li>
+          <li class="page-item page-goto"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </li>-->
+          </ul>
+        </nav>
+      </footer>
+      <!-- Button trigger modal -->
+    </main>
+    <!--<div id="app"></div>
+   <script type="module" src="/main.js"></script>-->
+  </body>
+</html>
