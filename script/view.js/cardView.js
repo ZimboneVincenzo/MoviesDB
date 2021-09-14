@@ -23,7 +23,7 @@ const renderList = function (data) {
     <h5 class="card-title cardList__genre">${data.title}</h5>
     <ul>
       ${data.genre.map((el) => `<li class="cardList__genre">${el}</li>`).join(" ")}
-    </ul
+    </ul>
   </div>
   </a>
 </li>`;
