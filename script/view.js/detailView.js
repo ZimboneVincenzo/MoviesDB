@@ -2,57 +2,56 @@
 
 import { renderCard } from "./cardView";
 
-const parentElement = document.querySelector(".detail");
+const movieElement = document.querySelector(".detail__movie");
+const castElement = document.querySelector('.detail__movie__cast')
+const moviesElement = document.querySelector('.detail__movies')
 const detailModal = document.querySelector('.modal')
 const btnClose = document.querySelector('.btn-close');
-const show = document.querySelector('btn-show');
+const show = document.querySelector('.btn__show');
+
 let goToDetail = 0;
-const t = document.querySelector('cardList');
+
+export const castList = function(bool, list){
+  console.log("DETAIL VIEW DATA", bool, list);
+    cast(list,bool)
+    show.addEventListener('click', function(ev){
+      ev.preventDefault();
+      bool = !bool
+      cast(list,bool)
+  })
+
+}
+
+/*<div class="cast">
+${}
+</div> */
 
 export const renderDetail = function (detail) {
+  console.log(show);
   const [movie, list] = detail;
-  console.log("DETAIL VIEW DATA", movie.cast.length);
-  if(movie.cast.length > 6){
-    console.log("MAGGIORE 6");
-  }else{
-    console.log("MINORE DI 6");
-  }
+  
   const html = `
   <div class="card detail__card" style="max-width: 100%;">
-  ${movie.result.map(movieList).join(" ")}
-</div>
-
-<h3 class="detail__card__actor">actors</h3>
-<button type="button" class="btn btn-success btn-show">Success</button>
-
-<div class="card-group detail__card__container">
-  ${movie.cast.map(movieCast).join(" ")}
-</div>
-  <ul class="card-group cardFlex">
-    ${list.result.map(renderList).join(" ")}
-  </ul>
+    ${movie.result.map(movieList).join(" ")}
+  </div>
 `;
+  movieElement.innerHTML = "";
+  movieElement.insertAdjacentHTML("afterbegin", html);
 
-  parentElement.innerHTML = "";
-  parentElement.insertAdjacentHTML("afterbegin", html);
+  castList(false,movie.cast);
+  movies(list.result)
 };
 
 export const detailViewCard = function (handler) {
-
-  parentElement.addEventListener("click", function (ev) {
+  moviesElement.addEventListener("click", function (ev) {
     ev.preventDefault();
-
-
     const page = ev.target.closest(".cardList");
-    
     goToDetail = +page.dataset.detail;
-
     handler(goToDetail);
   });
 };
 
 export const closeModal = function(){
-
   btnClose.addEventListener('click', function(){
     detailModal.style.display = 'none'
   })
@@ -91,8 +90,31 @@ const movieList = function (movie) {
   </div>`;
 };
 
+const cast = function(cast, bool = false){
+  const arrCast = []
+  console.log("aDETAIL CAST", cast);
+  if(cast.length > 6 && bool === false){
+    for(let x = 0; x <= 5; x++){
+      arrCast.push(cast[x])
+      console.log(arrCast);
+    }
+    var html = `
+    <div class="card-group detail__card__container">
+      ${arrCast.map(movieCast).join(" ")}
+    </div>
+  `;
+  }else{
+    var html = `
+    <div class="card-group detail__card__container">
+      ${cast.map(movieCast).join(" ")}
+    </div>
+  `;
+  }
 
 
+castElement.innerHTML = "";
+castElement.insertAdjacentHTML("afterbegin", html);
+}
 
 const movieCast = function (cast) {
   return `
@@ -103,9 +125,20 @@ const movieCast = function (cast) {
     <p class="card-text">${cast.character}</p>
   </div>
 </div>
-  
   `;
 };
+
+const movies = function(movies){
+  const html = `
+  <ul class="card-group cardFlex">
+    ${movies.map(renderList).join(" ")}
+  </ul>
+`;
+
+moviesElement.innerHTML = "";
+moviesElement.insertAdjacentHTML("afterbegin", html);
+
+}
 
 const renderList = function (data) {
   return `<li class="cardList" style="width: 18rem;" data-detail="${data.id}">

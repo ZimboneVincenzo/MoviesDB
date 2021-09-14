@@ -4,7 +4,7 @@ import * as model from "./model.js";
 import { renderCard, detailCard } from "./view.js/cardView.js";
 import { requestPage, resultPage } from "./view.js/paginationView.js";
 import { chooseLink } from "./view.js/buttonLinkView.js";
-import { renderDetail, detailViewCard, closeModal } from "./view.js/detailView.js";
+import { renderDetail, detailViewCard, closeModal, castList } from "./view.js/detailView.js";
 import { searchMovie } from "./view.js/searchView.js";
 
 import { changeNavbar } from "./view.js/navbar.js";
@@ -78,12 +78,13 @@ const init = function () {
   controlrequestApi();
   closeModal();
   changeNavbar();
+
   detailCard(controlRequestDetail);
   detailViewCard(controlRequestDetail);
   chooseLink(controlrequestApi);
   requestPage(controlrequestApi);
   searchMovie(controlSearch);
   //requestPage(controlrequestApi);
-  
+  //castList();
 };
 init();
