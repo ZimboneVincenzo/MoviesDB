@@ -56,7 +56,7 @@ const checkGenre = function (data) {
   return resultGenres;
 };
 
-export const createCardMovie = function (data, totalPages) {
+export const createCardMovie = function (data) {
   if (movies.result.length === 0) {
     data.map((element) => {
       const genre = checkGenre(element.genre_ids);

@@ -1,7 +1,7 @@
 "use strict";
 
 const parentElement = document.querySelector(".card-group");
-const detailModal = document.querySelector('.modal')
+const detailModal = document.querySelector(".modal");
 let goToDetail = 0;
 
 export const renderCard = function (data) {
@@ -15,14 +15,18 @@ export const renderCard = function (data) {
 };
 
 const renderList = function (data) {
-  return `<li class="card cardList " style="width: 18rem;" data-detail="${data.id}">
+  return `<li class="card cardList " style="width: 18rem;" data-detail="${
+    data.id
+  }">
   <a href="#" class="cardFlex__link">
   <img src="${data.img}" class="card-img-top" alt="Movie picture">
   <div class="card-body card__hover">
   <span class="card-text card__vote">${data.vote}</span>
-    <h5 class="card-title cardList__genre">${data.title}</h5>
+    <p class="card-title cardList__genre">${data.title}</p>
     <ul>
-      ${data.genre.map((el) => `<li class="cardList__genre">${el}</li>`).join(" ")}
+      ${data.genre
+        .map((el) => `<li class="cardList__genre__list">${el},</li>`)
+        .join(" ")}
     </ul>
   </div>
   </a>
@@ -34,7 +38,7 @@ export const detailCard = function (handler) {
   parentElement.addEventListener("click", function (ev) {
     ev.preventDefault();
     console.log("click");
-    detailModal.style.display = 'block'
+    detailModal.style.display = "block";
     //Richiamare la modal al click tramite ID?
 
     const page = ev.target.closest(".cardList");

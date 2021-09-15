@@ -4,8 +4,11 @@ ul{
 .cardFlex{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 
+    @media (min-width: 768px) {
+        justify-content: space-between;
+      }
 
     &__link{
         color: black;
@@ -13,8 +16,8 @@ ul{
     }
 }
 .cardList{
-   
-    border-radius: 12px;
+    
+    //border-radius: 12px;
     box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
     background-color: transparent;
     color: #333;
@@ -25,24 +28,36 @@ ul{
     width: 200px !important;
     text-decoration: none;
     list-style: none;
-
+    transition: all .3s;
+    
 
     &:hover{
-    
-        transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
+
+
+    ul{
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__genre{
-        margin-right: 1.5rem!important;
-        margin-bottom: .25rem!important;
-        font-size: 80%;
         text-decoration: none;
         list-style: none;
+
+        &__list{
+            margin-right:0.2rem!important;
+            margin-bottom: .25rem!important;
+            font-size: 80%;
+            text-decoration: none;
+            list-style: none;
+        }
     }
+
 }
 
 .card{
-
+    background-color:transparent;
     &__vote{
     position: absolute;
     right: 7px;
@@ -70,6 +85,7 @@ ul{
         &:hover{
         
             color: #dee2e6;
+          
         }
     }
 }

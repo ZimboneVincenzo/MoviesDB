@@ -4,14 +4,51 @@ import { APIPOPULAR, APINOWPLAIYNG, APITOPRATED, APIUPCOMING } from "../config";
 
 const parentElement = document.querySelector(".input-group");
 const paginationElement = document.querySelector('.pagination')
+const arrName = ['Popular','Now playing', 'Top Rated', 'Upcoming']
+const chooseAPI = function(url){
+  parentElement.innerHTML='';
+for(let i = 0; i <= 3 ; i++){
+  console.log(arrName[i],1);
+  if(i === url){
+    const button = document.createElement('button')
+    button.classList.add('btn')
+    button.classList.add('btn__menu__list')
+    button.classList.add('btn-outline-success')
+    button.classList.add('url-link')
+    button.classList.add('active')
+    button.setAttribute('data-gotoUrl',`${i}`)
+    button.innerHTML=arrName[i]
+    parentElement.appendChild(button)
+    console.log(button);
+  }else{
+    const button = document.createElement('button')
+    button.classList.add('btn')
+    button.classList.add('btn__menu__list')
+    button.classList.add('btn-outline-success')
+    button.classList.add('url-link')
+    button.setAttribute('data-gotoUrl',`${i}`)
+    button.innerHTML=arrName[i]
+    parentElement.appendChild(button)
+    console.log(button);
+  }
+ 
+}
+}
+
+
 
 export const chooseLink = function (handler) {
+  chooseAPI(0)
   parentElement.addEventListener("click", function (ev) {
+    
     const newUrl = ev.target.closest(".url-link");
     console.log("New URL", newUrl);
-
+    
     const checkUrl = +newUrl.dataset.gotourl;
 
+    chooseAPI(checkUrl)
+    newUrl.classList.add('active')
+    
     console.log("BTN CHECK URL", checkUrl);
 
     switch (checkUrl) {
@@ -34,13 +71,13 @@ export const chooseLink = function (handler) {
   });
 
   const html = `
-        <button class="btn btn__menu__list btn-outline-success url-link active" type="button"  data-gotoUrl="${1}">Popular</button>
+        <button class="btn btn__menu__list btn-outline-success url-link" type="button"  data-gotoUrl="${1}">Popular</button>
         <button class="btn btn__menu__list btn-outline-success url-link" type="button"  data-gotoUrl="${2}">Now playing</button>
         <button class="btn btn__menu__list btn-outline-success url-link" type="button"  data-gotoUrl="${3}">Top rated</button>
         <button class="btn btn__menu__list btn-outline-success url-link" type="button"  data-gotoUrl="${4}">Upcoming</button>
         `;
 
-  parentElement.insertAdjacentHTML("afterbegin", html);
+  //parentElement.insertAdjacentHTML("afterbegin", html);
 };
 
 /*

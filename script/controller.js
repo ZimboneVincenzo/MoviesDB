@@ -4,19 +4,18 @@ import * as model from "./model.js";
 import { renderCard, detailCard } from "./view.js/cardView.js";
 import { requestPage, resultPage } from "./view.js/paginationView.js";
 import { chooseLink } from "./view.js/buttonLinkView.js";
-import { renderDetail, detailViewCard, closeModal, castList } from "./view.js/detailView.js";
+import {
+  renderDetail,
+} from "./view.js/detailView.js";
 import { searchMovie } from "./view.js/searchView.js";
 
 import { changeNavbar } from "./view.js/navbar.js";
-
-
 
 // Funzione richiamo chiama API dal Model
 const controlrequestApi = async function (
   url = `https://api.themoviedb.org/3/movie/popular`,
   page = 1
 ) {
-
   try {
     //chiamata API dal model
     const data = await model.requestApi(url, page);
@@ -25,11 +24,9 @@ const controlrequestApi = async function (
     renderCard(data.result);
 
     //Pagination
- 
+
     resultPage(data.url, data.page, data.totalPage);
     //Pagination
-   
-   
 
     //controlPagination(data);
 
@@ -39,22 +36,10 @@ const controlrequestApi = async function (
   }
 };
 
-/*
-const controlPagination = function (data) {
-  console.log("ControlPagination");
-  //Manda a pagination.js url scelto e pagina corrente
-  const url = data.url;
-  const page = data.page;
-  resultPage(url, page);
-
-  console.log("NEWPAGE CON>TROL", data);
-};*/
-
-const controlRequestDetail = async function (id) {
+export const controlRequestDetail = async function (id) {
   try {
     //Chiamata Detail
     const detail = await model.requestDetail(id);
-  
 
     //Renderizzare con View la card Detail
     renderDetail(detail);
@@ -76,11 +61,9 @@ const controlSearch = async function (data) {
 const init = function () {
   model.genresApi();
   controlrequestApi();
-  closeModal();
   changeNavbar();
-
+  
   detailCard(controlRequestDetail);
-  detailViewCard(controlRequestDetail);
   chooseLink(controlrequestApi);
   requestPage(controlrequestApi);
   searchMovie(controlSearch);

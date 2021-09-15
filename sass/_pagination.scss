@@ -1,0 +1,40 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    color: #dee2e6;
+    font-size: 1.2em;
+    margin: 30px 0 0;
+    background-color: rgba(0,0,0,.5);
+}
+
+.page-link{
+    background-color: transparent;
+    border: 0;
+    color: #dee2e6;
+   cursor: pointer;
+
+    &:hover{
+        background-color: transparent;
+        color: #dee2e6;
+    }
+    
+    //&:link,
+    &:visited,
+    &:active,
+    &:focus{
+        box-shadow: none;
+        background-color: transparent;
+        color: #dee2e6;
+        border: 1px solid #dee2e6;
+    }
+}
+
+.active{
+
+    background-color: red;
+    color: aqua;
+    &:hover{
+        background-color: red;
+    color: aqua;
+    }
+}
