@@ -9,7 +9,7 @@ import {
 } from "./view.js/detailView.js";
 import { searchMovie } from "./view.js/searchView.js";
 
-import { changeNavbar } from "./view.js/navbar.js";
+import { navFunction  } from "./view.js/navbar.js";
 
 // Funzione richiamo chiama API dal Model
 const controlrequestApi = async function (
@@ -61,13 +61,13 @@ const controlSearch = async function (data) {
 const init = function () {
   model.genresApi();
   controlrequestApi();
-  changeNavbar();
-  
+ 
   detailCard(controlRequestDetail);
   chooseLink(controlrequestApi);
   requestPage(controlrequestApi);
   searchMovie(controlSearch);
   //requestPage(controlrequestApi);
   //castList();
+  navFunction();
 };
 init();

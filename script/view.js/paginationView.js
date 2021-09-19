@@ -26,7 +26,7 @@ export const requestPage = function (handler) {
 
     page.classList.add("active");
 
-    console.log("PAGE", page);
+
 
     goToPage = +page.dataset.goto;
 
@@ -54,8 +54,8 @@ const page = function (i, active = false) {
 };
 
 export const renderPagination = function (currPage) {
-  console.log("CURRPAGE", currPage);
-  console.log("totalPages", totalPages);
+
+
   parentElement.innerHTML = "";
   for (let i = currPage > 6 ? currPage - 6 : 1; i < currPage + 8; i++) {
     page(i, i === currPage);

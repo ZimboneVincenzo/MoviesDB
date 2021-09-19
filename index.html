@@ -56,13 +56,15 @@
                 </div>
               </div>
                   -->
-                </div>
-                <h3 class="detail__card__actor">actors</h3>
-                <button type="button" class="btn__show btn btn-success ">Show all</button>
-                <div class="detail__movie__cast"></div>
-                <h3 class="detail__card__actor">recommendations</h3>
-              <div class="detail__movies">
-                <!--<div class="card-group">
+            </div>
+            <h3 class="detail__card__actor">actors</h3>
+            <button type="button" class="btn__show btn btn-success">
+              Show all
+            </button>
+            <div class="detail__movie__cast"></div>
+            <h3 class="detail__card__actor">recommendations</h3>
+            <div class="detail__movies">
+              <!--<div class="card-group">
                     <div class="card " style="width: 18rem;">
                       <img src="./assets/cardImg.jfif" class="card-img-top" alt="...">
                       <div class="card-body">
@@ -94,8 +96,8 @@
                 
                     </div>
                   </div>-->
-              </div>
-            
+            </div>
+
             <button type="button" class="btn btn-primary btn-close"></button>
           </div>
           <!--<div class="modal-header">
@@ -112,108 +114,120 @@
         </div>
       </div>
     </div>
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
+    <div class="fixed">
       <div class="container">
-        <div class="container__nav">
-       
-          <div class="container__nav__first">
-               <img
-            src="./img/icons8-video-call-30.png"
-            class="navicon__video"
-            alt="Vieo icon"
-          />
+        <div class="containerNav">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container__nav__first">
+              <img
+                src="./img/icons8-video-call-30.png"
+                class="navicon__video"
+                alt="Vieo icon"
+              />
 
-            <div class="me-auto mb-2 mb-lg-0 nav-item movieText">
-              <h3 class="nav-link nav__title" aria-current="page"
-                >MovieBrowser</h3
+              <div class="me-auto mb-2 mb-lg-0 nav-item movieText">
+                <h3 class="nav-link nav__title" aria-current="page">
+                  MovieBrowser
+                </h3>
+              </div>
+
+              <div class="nav-item">
+                <form class="form-search d-flex">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search by movie name"
+                    aria-label="Search"
+                  />
+                </form>
+              </div>
+            </div>
+
+            <div class="container__nav__second">
+              <button
+                class="navbar-toggler btnSide"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
               >
-            </div>
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!--Nav non esterno-->
 
-            <div class="nav-item">
-              <form class="form-search d-flex">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search by movie name"
-                  aria-label="Search"
-                />
-              </form>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-        
-          <div class="container__nav__second">
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav__align">
+                  <li class="nav-item">
+                    <img
+                      src="./img/icons8-list-50.png"
+                      class="navicon__list"
+                      alt="Video icon"
+                    />
+                  </li>
+                  <li class="nav-item">
+                    <img
+                      src="./img/icons8-github-24.png"
+                      class="navicon__git"
+                      alt="Vieo icon"
+                    />
+                  </li>
 
-            <!--Nav non esterno-->
-           
-            <div class="collapse navbar-collapse" >
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav__align">
-                <li class="nav-item">
-                <img
-                src="./img/icons8-list-50.png"
-                class="navicon__list"
-                alt="Vieo icon"
-              />
-                </li>
-              <li class="nav-item">    <img
-                src="./img/icons8-github-24.png"
-                class="navicon__git"
-                alt="Vieo icon"
-              /></li>
-            
-                <li class="nav-item">
-                  <form class="form-search d-flex nav-item">
-                    <button
-                      class="btn btn-outline-success btn__signIn"
-                      type="submit"
-                    >
-                      SIGN IN
-                    </button>
-                  </form>
-                </li>
-              </ul>
+                  <li class="nav-item">
+                    <form class="form-search d-flex nav-item">
+                      <button
+                        class="btn btn-outline-success btn__signIn"
+                        type="submit"
+                      >
+                        SIGN IN
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="nav__desktop">
+                <div
+                  class="collapse navbar-collapse collapse__right"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav navUlMobile me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <img
+                        src="./img/icons8-list-50.png"
+                        class="navicon__list"
+                        alt="Vieo icon"
+                      />
+                    </li>
+                    <li class="nav-item">
+                      <img
+                        src="./img/icons8-github-24.png"
+                        class="navicon__git"
+                        alt="Vieo icon"
+                      />
+                    </li>
+
+                    <li class="nav-item">
+                      <form class="form-search d-flex nav-item">
+                        <button
+                          class="btn btn-outline-success btn-danger"
+                          type="submit"
+                        >
+                          SIGN IN
+                        </button>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          
-          <div class="nav__desktop">
-            <div class="collapse navbar-collapse collapse__right " id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <img
-                src="./img/icons8-list-50.png"
-                class="navicon__list"
-                alt="Vieo icon"
-              />
-                </li>
-              <li class="nav-item">    <img
-                src="./img/icons8-github-24.png"
-                class="navicon__git"
-                alt="Vieo icon"
-              /></li>
-            
-                <li class="nav-item">
-                  <form class="form-search d-flex nav-item">
-                    <button
-                      class="btn btn-outline-success btn-danger"
-                      type="submit"
-                    >
-                      SIGN IN
-                    </button>
-                  </form>
-                </li>
-              </ul>
-            </div>
-          </div>
-          </div>
+          </nav>
         </div>
       </div>
-      
-    </nav>
+    </div>
 
     <main class="container marginTop">
-  
       <!--Link-->
       <div class="input-group btn__menu">
         <!--<button class="btn btn-outline-secondary" type="button" id="button-addon1">Popular</button>

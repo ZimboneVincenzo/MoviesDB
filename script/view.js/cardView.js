@@ -5,7 +5,7 @@ const detailModal = document.querySelector(".modal");
 let goToDetail = 0;
 
 export const renderCard = function (data) {
-  console.log("PARENT ELEMENT RENDER CARD -> ", parentElement);
+
   const html = `<ul class="cardFlex">
     ${data.map(renderList).join(" ")}
   </ul>`;
@@ -34,10 +34,10 @@ const renderList = function (data) {
 };
 
 export const detailCard = function (handler) {
-  console.log("DETAIL CARD");
+
   parentElement.addEventListener("click", function (ev) {
     ev.preventDefault();
-    console.log("click");
+ 
     detailModal.style.display = "block";
     //Richiamare la modal al click tramite ID?
 

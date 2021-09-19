@@ -1,6 +1,5 @@
 "use strict";
 
-import { renderCard } from "./cardView";
 import { controlRequestDetail } from "../controller";
 
 const movieElement = document.querySelector(".detail__movie");
@@ -12,8 +11,62 @@ const show = document.querySelector(".btn__show");
 
 let goToDetail = 0;
 
+const timeMethod = function (data) {
+  const hour = Math.floor(data / 60);
+  const min = data % 60;
+  return [hour, min];
+};
+
+const budgetMethod = function (budget) {
+
+  const mod = budget.length % 3;
+
+  const arr = [];
+
+  const restSlice = [];
+
+  const arrJoin = [];
+
+  let result = [];
+
+  if (budget.length < 3) {
+    return "" + 0;
+  }
+
+  if (!(budget.length % 3)) {
+    for (let i = 0; i <= budget.length - 1; i++) {
+      if (i > 0 && i % 3 === 0) {
+        arr.push(".");
+      }
+      arr.push(budget[i]);
+    }
+    return arr.join("");
+  } else {
+
+    for (let i = 0; i <= budget.length - 1; i++) {
+      arr.push(budget[i]);
+    }
+
+    const sliceArr = arr.slice(0, mod);
+    sliceArr.push(".");
+
+    for (let i = mod; i <= arr.length - 1; i++) {
+      restSlice.push(arr[i]);
+    }
+
+    for (let i = 0; i <= restSlice.length - 1; i++) {
+      if (i > 0 && i % 3 === 0) {
+        arrJoin.push(".");
+      }
+      arrJoin.push(restSlice[i]);
+    }
+
+    result = sliceArr.concat(arrJoin);
+    return result.join("");
+  }
+};
+
 export const castList = function (bool, list) {
-  console.log("DETAIL VIEW DATA", bool, list);
   cast(list, bool);
   show.addEventListener("click", function (ev) {
     ev.preventDefault();
@@ -22,24 +75,18 @@ export const castList = function (bool, list) {
   });
 };
 
-/*<div class="cast">
-${}
-</div> */
-
 export const detailViewCard = function () {
+  closeModal();
   document.querySelectorAll(".detail__movies .cardList").forEach((node) => {
     node.addEventListener("click", function (ev) {
-      console.log(ev);
       goToDetail = +ev.path[2].dataset.detail;
-      console.log("NODE",goToDetail);
+
       controlRequestDetail(goToDetail);
-      closeModal();
     });
   });
 };
 
 export const renderDetail = function (detail) {
-  console.log(show);
   const [movie, list] = detail;
 
   const html = `
@@ -62,6 +109,10 @@ export const closeModal = function () {
 };
 
 const movieList = function (movie) {
+  const [hour, min] = timeMethod(movie.runtime);
+
+  const budget = budgetMethod("" + movie.budget);
+
   return `<div class="row g-0">
     <div class="col-md-4 detail__card__img__desktop">
       <img src="${
@@ -93,8 +144,8 @@ const movieList = function (movie) {
         "-",
         "."
       )}</small>
-      <small class="text-muted">Duration: ${movie.runtime}</small>
-      <small class="text-muted">Budget: ${movie.budget} $</small>
+      <small class="text-muted">Duration:${hour}h ${min}m</small>
+      <small class="text-muted">Budget: $ ${budget}</small>
     
     </div>
     </div>
@@ -103,11 +154,10 @@ const movieList = function (movie) {
 
 const cast = function (cast, bool = false) {
   const arrCast = [];
-  console.log("aDETAIL CAST", cast);
+
   if (cast.length > 6 && bool === false) {
     for (let x = 0; x <= 5; x++) {
       arrCast.push(cast[x]);
-      console.log(arrCast);
     }
     var html = `
     <div class="card-group detail__card__container">
@@ -128,7 +178,7 @@ const cast = function (cast, bool = false) {
 
 const movieCast = function (cast) {
   return `
-  <div class="col- col-sm-6 col-md-4 col-lg-2  detail__card__container__cast">
+  <div class="col-12 col-sm-12 col-md-4 col-lg-2  detail__card__container__cast">
   <img src="${cast.img}" class="card-img-top " alt="Actor picture">
   <div class="card-body">
     <h5 class="card-title">${cast.name}</h5>

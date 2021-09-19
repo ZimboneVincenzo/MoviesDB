@@ -35,7 +35,7 @@ export const genresApi = async function () {
   try {
     const result = await AJAXGET(`${APIGENRES}${APIKEY}`);
     genresMovie.genres = result;
-    console.log("CHIAMATA API GENERI", result);
+  
   } catch (err) {
     console.log(err);
   }
@@ -165,7 +165,8 @@ export const requestApi = async function (
       `${url}?api_key=${APIKEY}&language=en-US&page=${page}`
     );
 
-    console.log("RESULT CHIAMA API PAGINA", result.total_pages);
+
+ 
       movies.totalPage = result.total_pages
     const data = createCardMovie(result.results);
 
@@ -185,7 +186,8 @@ export const requestDetail = async function (id) {
     //Dettaglio film
     const result = await AJAXGET(`${APIGETDETAIL}${id}?api_key=${APIKEY}`);
     const { genres } = result;
-    console.log("MODEL REQUESTDETAIL -> ", genres);
+
+
 
     arr.push(result);
     const detailPage = createDetailPage(arr);
@@ -213,10 +215,10 @@ export const searcBar = async function (name) {
     const result = await AJAXGET(
       `${APISEARCH}?api_key=${APIKEY}&language=en-US&query=${name}&page=${1}&include_adult=false`
     );
-    console.log(result);
+
     const data = createCardMovie(result.results);
 
-    console.log("SEARCH RESULT -> ", data);
+ 
 
     return data;
   } catch (err) {

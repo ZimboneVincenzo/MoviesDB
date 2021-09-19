@@ -7,6 +7,7 @@
 }
 
 body {
+  background-image: linear-gradient(black, #3b1111);
   box-sizing: border-box;
   font-family: "Mulish", sans-serif;
 }
@@ -292,18 +293,20 @@ ul {
   border: 0 !important;
 }
 
-.btn__menu {
-  margin-bottom: 4rem;
+.btn:hover {
+  background-color: #218838;
 }
-.btn__menu__list {
+.btn__menu {
+  flex-wrap: nowrap;
+}
+
+.btn-menu-list {
+  margin-bottom: 4rem;
   border: 1px solid #343a40;
   color: #dee2e6;
 }
 
 .btn-outline-secondary:active {
-  background-color: #218838;
-}
-.btn-outline-secondary:hover {
   background-color: #218838;
 }
 .btn-outline-secondary:focus {
@@ -347,11 +350,44 @@ ul {
 
 .fixed {
   overflow: hidden;
-  background-color: #fffcf5;
+  position: fixed;
+  background-color: transparent;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  transition: background-color 300ms;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg {
+    justify-content: space-between;
+  }
+}
+
+.navbar {
+  flex-wrap: nowrap;
+  transition: padding-top 300ms;
+}
+
+.container__nav {
+  transition: padding-top 300ms;
+}
+
+.moveNav {
+  margin-right: 0;
+}
+
+.fixedScroll {
+  overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1050;
+  background-color: #fffcf5;
+}
+
+.paddingScroll {
+  padding-top: 1rem;
 }
 
 @media (max-width: 990px) {
@@ -398,12 +434,15 @@ ul {
   align-items: center;
 }
 
+.collapse ul li:not(:last-child) {
+  margin-right: 1rem;
+}
 .collapse__right {
   position: fixed;
   top: 0;
   height: 100% !important;
-  width: 230px;
-  right: 0;
+  width: 0px;
+  right: -40px;
   z-index: 1032;
   visibility: visible;
   background-color: #999;
@@ -415,21 +454,17 @@ ul {
   padding-left: 40px;
   padding-top: 15px;
   background-color: #fffcf5;
-}
-@keyframes example {
-  from {
-    width: 0rem;
-    background-color: #fffcf5;
-  }
-  to {
-    width: 10rem;
-    background-color: #fffcf5;
-  }
+  transition: width, right, 300ms;
 }
 @media (min-width: 992px) {
   .collapse__right {
     display: none !important;
   }
+}
+
+.marginSideRight {
+  right: 0px;
+  width: 230px;
 }
 
 @media (min-width: 992px) {
@@ -456,6 +491,27 @@ ul {
   color: #fff;
   background-color: #bd2130;
   border-color: #b21f2d;
+}
+
+.scroll {
+  background-color: #bd2130;
+}
+
+.containerNav {
+  margin-right: 0px;
+  transition: margin-right 300ms;
+}
+
+.marginRight {
+  margin-right: 230px;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.navUlMobile li:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

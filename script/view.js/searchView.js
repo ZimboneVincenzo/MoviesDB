@@ -13,7 +13,6 @@ export const searchMovie = function(handler){
 
         if(!movie) return;
 
-        console.log(movie);
         handler(movie);
     }
 )

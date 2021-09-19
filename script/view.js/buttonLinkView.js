@@ -3,42 +3,81 @@
 import { APIPOPULAR, APINOWPLAIYNG, APITOPRATED, APIUPCOMING } from "../config";
 
 const parentElement = document.querySelector(".input-group");
-const paginationElement = document.querySelector('.pagination')
-const arrName = ['Popular','Now playing', 'Top Rated', 'Upcoming']
-const chooseAPI = function(url){
-  parentElement.innerHTML='';
-for(let i = 0; i <= 3 ; i++){
-  console.log(arrName[i],1);
-  if(i === url){
-    const button = document.createElement('button')
-    button.classList.add('btn')
-    button.classList.add('btn__menu__list')
-    button.classList.add('btn-outline-success')
-    button.classList.add('url-link')
-    button.classList.add('active')
-    button.setAttribute('data-gotoUrl',`${i}`)
-    button.innerHTML=arrName[i]
-    parentElement.appendChild(button)
-    console.log(button);
-  }else{
-    const button = document.createElement('button')
-    button.classList.add('btn')
-    button.classList.add('btn__menu__list')
-    button.classList.add('btn-outline-success')
-    button.classList.add('url-link')
-    button.setAttribute('data-gotoUrl',`${i}`)
-    button.innerHTML=arrName[i]
-    parentElement.appendChild(button)
-    console.log(button);
-  }
- 
-}
-}
+const buttonElement = document.querySelectorAll(".btn-menu-list");
 
+const arrName = ["Popular", "Now playing", "Top Rated", "Upcoming"];
+
+const createButton= function () {
+
+  parentElement.innerHTML = "";
+
+  for (let i = 0; i <= 3; i++) {
+    const button = document.createElement("button");
+    button.classList.add("btn-menu-list");
+    button.classList.add("btn");
+    button.classList.add("btn-outline-success");
+    button.classList.add("url-link");
+    button.setAttribute("data-gotoUrl", `${i+1}`);
+    button.innerHTML = arrName[i];
+
+    parentElement.appendChild(button);
+  }
+};
+
+const addActive = function(number){
+  document.querySelectorAll(".btn-menu-list").forEach((node) => {
+      if(+node.getAttribute('data-gotoUrl') === number){
+        node.classList.add("active")
+      }else{
+        node.classList.remove("active")
+      }
+  })
+}
 
 
 export const chooseLink = function (handler) {
-  chooseAPI(0)
+  
+  createButton();
+  addActive(1)
+    
+    document.querySelectorAll(".btn-menu-list").forEach((node) => {
+        node.addEventListener("click", function (ev) {
+         
+          //console.log("CLICK NODO", node);
+
+          //const newUrl = ev.target.closest(".url-link");
+          //console.log("New URL", newUrl);
+
+          //const checkUrl = +newUrl.dataset.gotourl;
+          const checkUrl = +ev.path[0].dataset.gotourl;
+
+          node.classList.add("active");
+
+          //console.log("BTN CHECK URL", checkUrl);
+          addActive(checkUrl)
+          switch (checkUrl) {
+            case 1:
+              handler(APIPOPULAR, 1);
+              break;
+            case 2:
+              handler(APINOWPLAIYNG, 1);
+              break;
+            case 3:
+              handler(APITOPRATED, 1);
+              break;
+            case 4:
+              handler(APIUPCOMING, 1);
+              break;
+
+            default:
+              handler(APIPOPULAR, 1);
+          }
+         
+         
+        });
+      });
+  
+ /*
   parentElement.addEventListener("click", function (ev) {
     
     const newUrl = ev.target.closest(".url-link");
@@ -46,10 +85,15 @@ export const chooseLink = function (handler) {
     
     const checkUrl = +newUrl.dataset.gotourl;
 
+
     chooseAPI(checkUrl)
     newUrl.classList.add('active')
     
+
+
     console.log("BTN CHECK URL", checkUrl);
+
+
 
     switch (checkUrl) {
       case 1:
@@ -69,7 +113,7 @@ export const chooseLink = function (handler) {
         handler(APIPOPULAR, 1);
     }
   });
-
+*/
   const html = `
         <button class="btn btn__menu__list btn-outline-success url-link" type="button"  data-gotoUrl="${1}">Popular</button>
         <button class="btn btn__menu__list btn-outline-success url-link" type="button"  data-gotoUrl="${2}">Now playing</button>

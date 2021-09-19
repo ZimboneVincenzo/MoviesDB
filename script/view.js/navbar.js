@@ -1,31 +1,52 @@
-'use strict';
+"use strict";
 
-const pointCheck = document.querySelector('.nav--change');
-const navBar = document.querySelector('.navbar');
+const pointCheck = document.querySelector(".nav--change");
+const navBar = document.querySelector(".fixed");
 
-let coord;
 
-//Callback a partire dalla posizione delle card nav cambia colore
-const changeColor = function (entries, observer){
-    
-    const [entry] = entries
+const containerNav = document.querySelector(".navbar"); 
+const moveRight = document.querySelector(".moveNav");
+const btnNav = document.querySelector(".btnSide");
+const sideBar = document.querySelector(".collapse__right");
 
- 
-    //navBar.style.display = 'none'
+const container = document.querySelector(".containerNav"); 
 
-    observer.unobserve(entry.target);
+
+export const navFunction = function(){
+  coordinates();
+  openSide();
 }
-const sectionObserver = new IntersectionObserver(changeColor, {
-    root: null,
-    threshold: 0,
 
+
+const coordinates = function () {
+  
+  const initialCoord = pointCheck.getBoundingClientRect();
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > initialCoord.top - 100) {
+        containerNav.classList.add("paddingScroll");
+        navBar.classList.add("fixedScroll");
+    } else {
+        containerNav.classList.remove("paddingScroll");
+        navBar.classList.remove("fixedScroll");
+    }
   });
-  export const changeNavbar = function (){
-
-   
-    const coords = pointCheck.getBoundingClientRect();
-    coord = coords.top.toString()
-    sectionObserver.observe(pointCheck)  
-
 };
-   
+
+const openSide = function (open = true) {
+
+  btnNav.addEventListener("click", function () {
+    console.log(container);
+    if (open) {
+      sideBar.classList.add("marginSideRight");
+      container.classList.add("marginRight");
+  
+      open = !open;
+    } else {
+      sideBar.classList.remove("marginSideRight");
+      container.classList.remove("marginRight");
+    
+      open = !open;
+    }
+  });
+};
